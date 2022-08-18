@@ -1,7 +1,7 @@
 <div *ngIf="professorSelecionado">
   <div class="row">
     <div class="me-auto">
-      <app-titulo [titulo]="'Professor: ' + professorSelecionado"></app-titulo>
+      <app-titulo [titulo]="'Professor: ' + professorSelecionado.id"></app-titulo>
     </div>
     <div class="mt-1 mb-1">
       <button class="btn btn-warning" (click)="voltar()">Lista de Professores</button>
@@ -16,6 +16,7 @@
       <input
         type="text"
         class="form-control"
+        value="{{ professorSelecionado.nome }}"
       />
     </div>
 
@@ -26,6 +27,7 @@
       <input
         type="text"
         class="form-control"
+        value="{{ professorSelecionado.disciplina }}"
       />
     </div>
   </form>

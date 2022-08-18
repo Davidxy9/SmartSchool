@@ -1,42 +1,33 @@
 <div *ngIf="alunoSelecionado">
   <div class="row">
     <div class="me-auto">
-      <app-titulo [titulo]="'Aluno: ' + alunoSelecionado"></app-titulo>
+      <app-titulo [titulo]="'Aluno: ' + alunoSelecionado.id"></app-titulo>
     </div>
     <div class="mt-1 mb-1">
-      <button class="btn btn-warning" (click)="voltar()">Lista de Alunos</button>
+      <button class="btn btn-warning" (click)="voltar()">
+        Lista de Alunos
+      </button>
     </div>
   </div>
 
   <form>
     <div class="form-group">
-      <label for="exampleFormControlInput1" class="form-label"
-        >Nome</label
-      >
+      <label for="exampleFormControlInput1" class="form-label">Nome</label>
       <input
         type="text"
         class="form-control"
+        value="{{ alunoSelecionado.nome }}"
       />
     </div>
 
     <div class="form-group mt-2">
-      <label for="exampleFormControlInput2" class="form-label"
-        >Sobrenome</label
-      >
-      <input
-        type="text"
-        class="form-control"
-      />
+      <label for="exampleFormControlInput2" class="form-label">Sobrenome</label>
+      <input type="text" class="form-control" value="{{ alunoSelecionado.sobrenome }}"  />
     </div>
 
     <div class="form-group mt-2">
-      <label for="exampleFormControlInput2" class="form-label"
-        >Telefone</label
-      >
-      <input
-        type="text"
-        class="form-control"
-      />
+      <label for="exampleFormControlInput2" class="form-label">Telefone</label>
+      <input type="text" class="form-control"  value="{{ alunoSelecionado.telefone }}" />
     </div>
   </form>
 </div>
