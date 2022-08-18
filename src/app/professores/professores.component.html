@@ -1,7 +1,34 @@
 <div *ngIf="professorSelecionado">
-  <app-titulo [titulo]="'Professor: ' + professorSelecionado"></app-titulo>
-  <br>
-  <button class="btn btn-default" (click)="voltar()">Voltar</button>
+  <div class="row">
+    <div class="me-auto">
+      <app-titulo [titulo]="'Professor: ' + professorSelecionado"></app-titulo>
+    </div>
+    <div class="mt-1 mb-1">
+      <button class="btn btn-warning" (click)="voltar()">Lista de Professores</button>
+    </div>
+  </div>
+
+  <form>
+    <div class="form-group">
+      <label for="exampleFormControlInput1" class="form-label"
+        >Nome</label
+      >
+      <input
+        type="text"
+        class="form-control"
+      />
+    </div>
+
+    <div class="form-group mt-2">
+      <label for="exampleFormControlInput2" class="form-label"
+        >Disciplina</label
+      >
+      <input
+        type="text"
+        class="form-control"
+      />
+    </div>
+  </form>
 </div>
 
 <div *ngIf="!professorSelecionado">
