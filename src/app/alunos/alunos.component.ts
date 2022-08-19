@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Aluno } from '../models/aluno';
+import { Aluno } from '../models/Aluno';
 
 @Component({
   selector: 'app-alunos',
@@ -10,6 +10,7 @@ export class AlunosComponent implements OnInit {
 
   public titulo = 'Alunos';
   public alunoSelecionado: Aluno | undefined;
+  public textSimple: string = '';
 
   public alunos = [
     { id: 1, nome: 'Marta', sobrenome: 'Kent', telefone: 3222321},

@@ -1,60 +1,86 @@
-<div *ngIf="alunoSelecionado">
-  <div class="row">
-    <div class="me-auto">
-      <app-titulo [titulo]="'Aluno: ' + alunoSelecionado.id"></app-titulo>
-    </div>
-    <div class="mt-1 mb-1">
-      <button class="btn btn-warning" (click)="voltar()">
-        Lista de Alunos
-      </button>
-    </div>
+<div class="row">
+
+  <div>
+    <input type="text">
+    <p></p>
   </div>
 
-  <form>
-    <div class="form-group">
-      <label for="exampleFormControlInput1" class="form-label">Nome</label>
-      <input
-        type="text"
-        class="form-control"
-        value="{{ alunoSelecionado.nome }}"
-      />
+  <div class="col-sm-6" *ngIf="alunoSelecionado">
+    <div class="row">
+      <div class="me-auto">
+        <app-titulo [titulo]="'Cód. Aluno: ' + alunoSelecionado.id"></app-titulo>
+      </div>
+      <div class="mt-1 mb-1">
+        <button class="btn btn-outline-danger" (click)="voltar()">
+          Fechar
+        </button>
+      </div>
     </div>
 
-    <div class="form-group mt-2">
-      <label for="exampleFormControlInput2" class="form-label">Sobrenome</label>
-      <input type="text" class="form-control" value="{{ alunoSelecionado.sobrenome }}"  />
-    </div>
+    <form>
+      <div class="form-group">
+        <label for="exampleFormControlInput1" class="form-label">Nome</label>
+        <input
+          type="text"
+          class="form-control"
+          value="{{ alunoSelecionado.nome }}"
+        />
+      </div>
 
-    <div class="form-group mt-2">
-      <label for="exampleFormControlInput2" class="form-label">Telefone</label>
-      <input type="text" class="form-control"  value="{{ alunoSelecionado.telefone }}" />
-    </div>
-  </form>
-</div>
+      <div class="form-group mt-2">
+        <label for="exampleFormControlInput2" class="form-label"
+          >Sobrenome</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          value="{{ alunoSelecionado.sobrenome }}"
+        />
+      </div>
 
-<div *ngIf="!alunoSelecionado">
-  <app-titulo [titulo]="titulo"></app-titulo>
+      <div class="form-group mt-2">
+        <label for="exampleFormControlInput2" class="form-label"
+          >Telefone</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          value="{{ alunoSelecionado.telefone }}"
+        />
+      </div>
 
-  <table class="table table-hover">
-    <thead class="table-dark">
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Nome</th>
-        <th scope="col">Sobrenome</th>
-        <th scope="col">Telefone</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr
-        *ngFor="let aluno of alunos"
-        style="cursor: pointer"
-        (click)="alunoSelect(aluno)"
-      >
-        <th scope="row">{{ aluno.id }}</th>
-        <td>{{ aluno.nome }}</td>
-        <td>{{ aluno.sobrenome }}</td>
-        <td>{{ aluno.telefone }}</td>
-      </tr>
-    </tbody>
-  </table>
+      <div class="form-group">
+        <hr>
+        <button class="btn btn-success">Enviar</button>
+      </div>
+
+    </form>
+  </div>
+
+  <div [ngClass]="{'col-sm-12': !alunoSelecionado, 'col-sm-6': alunoSelecionado}">
+    <app-titulo [titulo]="titulo"></app-titulo>
+
+    <table class="table table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Sobrenome</th>
+          <th scope="col">Telefone</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let aluno of alunos"
+          style="cursor: pointer"
+          (click)="alunoSelect(aluno)"
+        >
+          <th scope="row">{{ aluno.id }}</th>
+          <td>{{ aluno.nome }}</td>
+          <td>{{ aluno.sobrenome }}</td>
+          <td>{{ aluno.telefone }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
